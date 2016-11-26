@@ -3,6 +3,7 @@ package com.example.bishwa.karn.fragmentdemo;
 import android.app.Fragment;
 import android.app.FragmentManager;
 
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +17,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        init();
+
+        firstFragment = (Button) findViewById(R.id.btn_first_fragment);
+        secondFragment = (Button) findViewById(R.id.btn_second_fragment);
+        thirdFragment = (Button) findViewById(R.id.btn_third_fragment);
+
 
         firstFragment.setOnClickListener(buttonClicked);
         secondFragment.setOnClickListener(buttonClicked);
@@ -29,32 +34,32 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
 
-            Fragment fragment;
-            FragmentManager fragmentManager;
-            android.app.FragmentTransaction fragmentTransaction;
-            switch (v.getId()){
+            android.support.v4.app.Fragment fragment;
+            android.support.v4.app.FragmentManager fragmentManager;
+            FragmentTransaction fragmentTransaction;
+            switch (v.getId()) {
                 case R.id.btn_first_fragment:
                     fragment = new FirstFragment();
-                    fragmentManager = getFragmentManager();
+                    fragmentManager = getSupportFragmentManager();
                     fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.my_fragment,fragment);
+                    fragmentTransaction.replace(R.id.my_fragment, fragment);
                     fragmentTransaction.commit();
 
                     break;
                 case R.id.btn_second_fragment:
 
                     fragment = new SecondFragment();
-                    fragmentManager = getFragmentManager();
+                    fragmentManager = getSupportFragmentManager();
                     fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.my_fragment,fragment);
+                    fragmentTransaction.replace(R.id.my_fragment, fragment);
                     fragmentTransaction.commit();
                     break;
                 case R.id.btn_third_fragment:
 
                     fragment = new ThirdFragment();
-                    fragmentManager = getFragmentManager();
+                    fragmentManager = getSupportFragmentManager();
                     fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.my_fragment,fragment);
+                    fragmentTransaction.replace(R.id.my_fragment, fragment);
                     fragmentTransaction.commit();
                     break;
             }
@@ -63,11 +68,4 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
-    private void init() {
-        firstFragment = (Button) findViewById(R.id.btn_first_fragment);
-        secondFragment = (Button) findViewById(R.id.btn_second_fragment);
-        thirdFragment = (Button) findViewById(R.id.btn_third_fragment);
-
-
-    }
 }
