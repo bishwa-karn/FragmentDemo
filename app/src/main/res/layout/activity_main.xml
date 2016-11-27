@@ -27,7 +27,9 @@
         android:text="Fragment third"
         android:id="@+id/btn_third_fragment"/>
     <fragment
+        android:tag="@string/app_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/my_fragment"/>
+        android:id="@+id/my_fragment"
+        android:name="com.example.bishwa.karn.fragmentdemo.FirstFragment"/>
 </LinearLayout>

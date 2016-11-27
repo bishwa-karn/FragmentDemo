@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button firstFragment, secondFragment, thirdFragment;
+    private Button firstFragment;
+    private Button secondFragment;
+    private Button thirdFragment;
 
 
     @Override
